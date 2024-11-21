@@ -40,6 +40,15 @@ app.get('/images', (req, res) => {
 
 
 
+app.post('/images', (req, res) => {
+    const file = req.files.image
+    const fileName = req.files.image.name
+    const tempPath = `${UPLOAD_TEMP_PATH}/${fileName}`
+    file.mv(tempPath, (err) => { res.status(500) })
+})
+
+
+
 
 
 
